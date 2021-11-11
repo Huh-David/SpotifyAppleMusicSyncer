@@ -40,8 +40,10 @@ class SpotifyHandler(object):
             for artist in track_info['artists']:
                 track_artists.append(artist['name'])
 
-            track = Track(name=track_name,
-                          artists=track_artists)
+            track = Track(
+                name=track_name,
+                artists=track_artists
+            )
 
             tracks.append(track)
 
