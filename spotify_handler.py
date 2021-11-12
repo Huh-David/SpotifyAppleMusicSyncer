@@ -6,9 +6,9 @@ from classes.Track import Track
 
 config = dotenv_values('.env')  # create .env file
 
-CLIENT_ID = config['CLIENT_ID']
-CLIENT_SECRET = config['CLIENT_SECRET']
-PLAYLIST_URI = config['PLAYLIST_URI']
+CLIENT_ID = config['SPOT_CLIENT_ID']
+CLIENT_SECRET = config['SPOT_CLIENT_SECRET']
+PLAYLIST_URI = config['SPOT_PLAYLIST_URI']
 
 
 class SpotifyHandler(object):

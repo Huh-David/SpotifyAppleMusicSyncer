@@ -5,10 +5,10 @@ from classes.Track import Track
 
 config = dotenv_values('.env')  # create .env file
 
-SECRET_KEY = config['SECRET_KEY']
-KEY_ID = config['KEY_ID']
-TEAM_ID = config['TEAM_ID']
-PLAYLIST_ID = config['PLAYLIST_ID']
+SECRET_KEY = config['AM_SECRET_KEY']
+KEY_ID = config['AM_KEY_ID']
+TEAM_ID = config['AM_TEAM_ID']
+PLAYLIST_ID = config['AM_PLAYLIST_ID']
 
 
 class AppleMusicHandler(object):
