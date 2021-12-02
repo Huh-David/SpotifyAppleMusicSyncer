@@ -113,8 +113,13 @@ class SpotifyHandler(object):
 
         playlist = self.spotify.playlist(playlist_id=playlist_id)
         date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        old_description = playlist["description"][:71]
-        new_description = f'{old_description}\nlast update by SpotifyAppleMusicSyncer: {date}'
+
+        old_description = playlist["description"]
+        if '\nlast update by SpotifyAppleMusicSyncer: ' in old_description:
+            new_description = f'{old_description[:-19]}{date}'
+        else:
+            new_description = f'{old_description}\nlast update by SpotifyAppleMusicSyncer: {date}'
+
         self.spotify.playlist_change_details(playlist_id=playlist_id, description=new_description)
 
         print(f'Updating of playlist description of playlist [{playlist_id}] done!')
