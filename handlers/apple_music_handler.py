@@ -1,14 +1,5 @@
 import applemusicpy
-from dotenv import dotenv_values
-
-from classes.Track import Track
-
-config = dotenv_values('.env')  # create .env file
-
-SECRET_KEY = config['AM_SECRET_KEY']
-KEY_ID = config['AM_KEY_ID']
-TEAM_ID = config['AM_TEAM_ID']
-PLAYLIST_ID = config['AM_PLAYLIST_ID']
+from models.track import Track
 
 
 class AppleMusicHandler(object):
@@ -39,14 +30,3 @@ class AppleMusicHandler(object):
                 tracks.append(track)
 
         return tracks
-
-
-if __name__ == '__main__':
-    apple_music_handler = AppleMusicHandler(
-        secret_key=SECRET_KEY,
-        key_id=KEY_ID,
-        team_id=TEAM_ID
-    )
-
-    for x in apple_music_handler.get_tracks_from_playlist(PLAYLIST_ID):
-        print(x)
