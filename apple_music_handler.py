@@ -41,10 +41,12 @@ class AppleMusicHandler(object):
         return tracks
 
 
-apple_music_handler = AppleMusicHandler(
-    secret_key=SECRET_KEY,
-    key_id=KEY_ID,
-    team_id=TEAM_ID
-)
+if __name__ == '__main__':
+    apple_music_handler = AppleMusicHandler(
+        secret_key=SECRET_KEY,
+        key_id=KEY_ID,
+        team_id=TEAM_ID
+    )
 
-print(apple_music_handler.get_tracks_from_playlist(PLAYLIST_ID))
+    for x in apple_music_handler.get_tracks_from_playlist(PLAYLIST_ID):
+        print(x)
